@@ -298,11 +298,5 @@ def generate_pptx():
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
-    port = find_free_port()
-    print("="*60)
-    print("🚀 User Feedback Analyzer & Automated PowerPoint Generator")
-    print("="*60)
-    print(f"✅ السيرفر يعمل على: http://localhost:{port}")
-    print(f"📂 افتح المتصفح على: http://localhost:{port}")
-    print("="*60)
-    app.run(host='0.0.0.0', port=port, debug=True)
+    port = int(os.environ.get('PORT', 8080))
+    app.run(host='0.0.0.0', port=port, debug=False)
